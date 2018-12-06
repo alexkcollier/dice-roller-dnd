@@ -1,6 +1,6 @@
 import DiceRolls from './dice-rolls'
 
-const dieSizes = [4, 6, 8, 10, 12, 20, 100]
+export const dieSizes = [4, 6, 8, 10, 12, 20, 100]
 
 /**
  * @class DiceRoller
@@ -19,7 +19,7 @@ export default class DiceRoller {
    * @param {Boolean} param0.shouldInit If `this.init()` should be called
    */
   constructor({ n = 1, size, shouldInit = true } = { n: 1, shouldInit: true }) {
-    this.n = n
+    this.n = n > 0 ? n : 1
     this.size = size
     this.toRoll = null
 
@@ -52,7 +52,7 @@ export default class DiceRoller {
    * @return {DiceRolls|Array.<Function>} The result, or if there is no set size, the standard dice
    */
   roll(nToRoll = this.n) {
-    this.toRoll = nToRoll
+    this.toRoll = nToRoll > 0 ? nToRoll : 1
     // Just roll the die if a size is set already
     if (this.size) return this.d(this.size)
     // Define standard dice

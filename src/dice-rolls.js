@@ -17,6 +17,7 @@ export default class DiceRolls {
   constructor({ n = 1, size = null } = { n: 1 }) {
     this.size = size
     this.rolls = Array.from({ length: n }, () => this._rollDie())
+    this.oldRolls = null
   }
 
   /**
@@ -84,6 +85,8 @@ export default class DiceRolls {
    * @return {Object.<string, Array.<Number>|Number>} The new rolls
    */
   reroll(...values) {
+    this.oldRolls = this.rolls
+
     this.rolls.forEach((roll, i, a) => {
       if (values.includes(roll)) a[i] = this._rollDie()
 

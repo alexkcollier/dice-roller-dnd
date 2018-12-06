@@ -1,0 +1,41 @@
+{
+  "name": "dice-roller-dnd",
+  "version": "1.0.0",
+  "description": "A basic dice roller fo DnD 5e. Works in evergreen browsers, Node, and should work back to IE11.",
+  "main": "dist/dice-roller-dnd.js",
+  "module": "src/index.js",
+  "scripts": {
+    "build": "webpack --progress --config config/webpack.prod.js",
+    "bundle-stats": "webpack-bundle-analyzer --port 4200 dist/bundle-stats.json",
+    "dev": "webpack-dev-server --progress --config config/webpack.dev.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "https://github.com/alexkcollier/dice-roller-dnd.git",
+  "author": "Alex Collier",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^1.0.0",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "^3.3.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.15.3",
+    "webpack": "^4.27.1",
+    "webpack-bundle-analyzer": "^3.0.3",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.1.4"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0",
+    "@babel/runtime": "^7.2.0"
+  }
+}

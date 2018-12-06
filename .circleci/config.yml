@@ -18,12 +18,12 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
 
       - run: npm install
-      - run: 
+      - run:
           name: Build
           command: npm run build
 
@@ -31,7 +31,7 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      
+
       - persist_to_workspace:
           root: ~/repo
           paths: .
@@ -40,30 +40,33 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-            at: ~/repo
+          at: ~/repo
 
-      - run: 
+      - run:
           name: Run tests
           command: npm test
 
       - persist_to_workspace:
           root: ~/repo
           paths: .
-          
+
   publish:
     <<: *defaults
     steps:
       - attach_workspace:
           at: ~/repo
-          
+
+      - run:
+          name: Avoid hosts unknown for github
+          command: mkdir ~/.ssh/ && echo -e "Host github.com\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
+
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$npm_TOKEN" > ~/repo/.npmrc
-          
+
       - run:
           name: Publish package
-          command: npm publish
-        
+          command: npx semantic-release
 
 workflows:
   version: 2
@@ -77,8 +80,7 @@ workflows:
           requires:
             - test
           filters:
-            tags: 
+            tags:
               only: /^v*/
             branches:
               only: master
-          

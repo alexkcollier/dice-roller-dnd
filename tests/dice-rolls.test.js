@@ -41,15 +41,15 @@ describe('DiceRolls', () => {
   it('returns high values', () => {
     const randLength = randInt(randN)
 
-    expect(mockRolls.keepHighest(randLength).length).toBe(randLength)
-    expect(mockRolls.keepHighest(randLength)).toEqual(mockRolls.rolls.slice(0, randLength))
+    expect(mockRolls.keepHighest(randLength).rolls.length).toBe(randLength)
+    expect(mockRolls.keepHighest(randLength).rolls).toEqual(mockRolls.rolls.slice(0, randLength))
   })
 
   it('returns low values', () => {
     const randLength = randInt(randN)
 
-    expect(mockRolls.keepLowest(randLength).length).toBe(randLength)
-    expect(mockRolls.keepLowest(randLength)).toEqual(mockRolls.rolls.slice(0, randLength))
+    expect(mockRolls.keepLowest(randLength).rolls.length).toBe(randLength)
+    expect(mockRolls.keepLowest(randLength).rolls).toEqual(mockRolls.rolls.slice(0, randLength))
   })
 
   it('rerolls values', () => {

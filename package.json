@@ -10,7 +10,6 @@
   "module": "dist/dice-roller-dnd.esm.js",
   "scripts": {
     "build": "rimraf dist && rollup -c",
-    "bundle-stats": "webpack-bundle-analyzer --port 4200 dist/bundle-stats.json",
     "dev": "rollup -c -w",
     "test": "jest"
   },
@@ -32,7 +31,6 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
-    "clean-webpack-plugin": "^1.0.0",
     "eslint": "^5.9.0",
     "eslint-config-prettier": "^3.3.0",
     "eslint-config-standard": "^12.0.0",

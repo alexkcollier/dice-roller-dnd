@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/alexkcollier/dice-roller-dnd/compare/v1.0.2...v1.0.3) (2018-12-19)
+
+
+### Bug Fixes
+
+* **dice-rolls:** ensures `rolls` are copied to `oldRolls` ([17a8e44](https://github.com/alexkcollier/dice-roller-dnd/commit/17a8e44))
+
 ## [1.0.2](https://github.com/alexkcollier/dice-roller-dnd/compare/v1.0.1...v1.0.2) (2018-12-13)
 
 

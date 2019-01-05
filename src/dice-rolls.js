@@ -42,7 +42,7 @@ export default class DiceRolls {
   }
 
   get sorted() {
-    return this.rolls.sort()
+    return [...this.rolls].sort()
   }
 
   /**
@@ -67,7 +67,7 @@ export default class DiceRolls {
    * @return {Array.<Number>} The shortened list of values
    */
   keepHighest(amount = 1) {
-    const rolls = this.sorted.reverse().slice(0, amount)
+    const rolls = [...this.sorted].reverse().slice(0, amount)
     const total = this._sum(rolls)
     return { rolls, total }
   }

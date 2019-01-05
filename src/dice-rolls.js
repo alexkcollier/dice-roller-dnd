@@ -14,6 +14,7 @@ export default class DiceRolls {
    * @param {Number} param0.n How many dice to roll
    * @param {Number} param0.size What size of dice to roll
    */
+  /* istanbul ignore next */
   constructor({ n = 1, size = null } = { n: 1 }) {
     this.size = size
     this.rolls = Array.from({ length: n }, () => this._rollDie())

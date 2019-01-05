@@ -1,6 +1,6 @@
 {
   "name": "dice-roller-dnd",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A basic dice roller fo DnD 5e. Works in evergreen browsers, Node, and should work back to IE11.",
   "main": "dist/dice-roller-dnd.cjs.js",
   "browser": {

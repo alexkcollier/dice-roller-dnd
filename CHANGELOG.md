@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/alexkcollier/dice-roller-dnd/compare/v1.0.4...v1.0.5) (2019-01-05)
+
+
+### Bug Fixes
+
+* **dice-rolls:** do not mutate `DiceRolls.rolls` when keeping high/low ([7999eb8](https://github.com/alexkcollier/dice-roller-dnd/commit/7999eb8))
+
 ## [1.0.3](https://github.com/alexkcollier/dice-roller-dnd/compare/v1.0.2...v1.0.3) (2018-12-19)
 
 

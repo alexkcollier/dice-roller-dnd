@@ -7,7 +7,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/repo
   docker:
-    - image: circleci/node:8.9.1
+    - image: circleci/node:10.16.0
 
 jobs:
   build:
@@ -18,19 +18,22 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v1-dependencies-{{ checksum "yarn.lock" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
-      - run: npm install
+      - run:
+          name: Install
+          command: yarn install --frozen-lockfile
       - run:
           name: Build
-          command: npm run build
+          command: yarn build
 
       - save_cache:
+          name: Save Yarn Cache
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
           paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+            - ~/.cache/yarn
 
       - persist_to_workspace:
           root: ~/repo
@@ -44,7 +47,7 @@ jobs:
 
       - run:
           name: Run tests
-          command: npm test
+          command: yarn test
 
       - persist_to_workspace:
           root: ~/repo
@@ -66,7 +69,7 @@ jobs:
 
       - run:
           name: Publish package
-          command: npx semantic-release
+          command: yarn semantic-release
 
 workflows:
   version: 2

@@ -14,6 +14,7 @@ export default class DiceRolls {
    * @param {Number} param0.n How many dice to roll
    * @param {Number} param0.size What size of dice to roll
    */
+  /* istanbul ignore next */
   constructor({ n = 1, size = null } = { n: 1 }) {
     this.size = size
     this.rolls = Array.from({ length: n }, () => this._rollDie())
@@ -42,7 +43,7 @@ export default class DiceRolls {
   }
 
   get sorted() {
-    return this.rolls.sort()
+    return [...this.rolls].sort()
   }
 
   /**
@@ -67,7 +68,7 @@ export default class DiceRolls {
    * @return {Array.<Number>} The shortened list of values
    */
   keepHighest(amount = 1) {
-    const rolls = this.sorted.reverse().slice(0, amount)
+    const rolls = [...this.sorted].reverse().slice(0, amount)
     const total = this._sum(rolls)
     return { rolls, total }
   }

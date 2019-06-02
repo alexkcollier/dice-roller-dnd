@@ -21,6 +21,10 @@ describe('DiceRolls', () => {
     expect(mockRolls.rolls.length).toBe(randN)
   })
 
+  it('sums the results', () => {
+    expect(mockRolls.total).toBe(mockRolls.rolls.reduce((sum, r) => (sum += r), 0))
+  })
+
   it('has results between 1 and the die size', () => {
     const isBetween = mockRolls.rolls.every(v => v >= 1 && v <= randSize)
     expect(isBetween).toBe(true)
@@ -38,18 +42,32 @@ describe('DiceRolls', () => {
     expect(mockRolls.disadvantage()).toBe(Math.min(...mockRolls.rolls))
   })
 
-  it('returns high values', () => {
-    const randLength = randInt(randN)
+  describe('keepHighest', () => {
+    it('returns one value by default', () => {
+      expect(mockRolls.keepHighest().rolls.length).toBe(1)
+    })
 
-    expect(mockRolls.keepHighest(randLength).rolls.length).toBe(randLength)
-    expect(mockRolls.keepHighest(randLength).rolls).toEqual(mockRolls.rolls.slice(0, randLength))
+    it('returns high values', () => {
+      const randLength = randInt(randN)
+
+      expect(mockRolls.keepHighest(randLength).rolls.length).toBe(randLength)
+      expect(mockRolls.keepHighest(randLength).rolls).toEqual(
+        mockRolls.sorted.reverse().slice(0, randLength)
+      )
+    })
   })
 
-  it('returns low values', () => {
-    const randLength = randInt(randN)
+  describe('keepHighest', () => {
+    it('returns one value by default', () => {
+      expect(mockRolls.keepLowest().rolls.length).toBe(1)
+    })
 
-    expect(mockRolls.keepLowest(randLength).rolls.length).toBe(randLength)
-    expect(mockRolls.keepLowest(randLength).rolls).toEqual(mockRolls.rolls.slice(0, randLength))
+    it('returns low values', () => {
+      const randLength = randInt(randN)
+
+      expect(mockRolls.keepLowest(randLength).rolls.length).toBe(randLength)
+      expect(mockRolls.keepLowest(randLength).rolls).toEqual(mockRolls.sorted.slice(0, randLength))
+    })
   })
 
   it('rerolls values', () => {
@@ -59,5 +77,15 @@ describe('DiceRolls', () => {
     mockRolls.reroll(...valuesToReRoll)
     expect(mockRolls.oldRolls).toBeTruthy()
     expect(mockRolls.rolls.length).toBe(mockRolls.oldRolls.length)
+  })
+
+  it('defaults to one die', () => {
+    const rolls = new DiceRolls()
+    expect(rolls.rolls.length).toBe(1)
+  })
+
+  it('defaults to null size', () => {
+    const rolls = new DiceRolls()
+    expect(rolls.size).toBeNull()
   })
 })

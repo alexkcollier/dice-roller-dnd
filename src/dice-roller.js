@@ -18,6 +18,7 @@ export default class DiceRoller {
    * @param {Number} param0.size What size of dice to roll
    * @param {Boolean} param0.shouldInit If `this.init()` should be called
    */
+  /* istanbul ignore next */
   constructor({ n = 1, size, shouldInit = true } = { n: 1, shouldInit: true }) {
     this.n = n > 0 ? n : 1
     this.size = size

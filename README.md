@@ -1,5 +1,7 @@
 # dice-roller-dnd
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/alexkcollier/dice-roller-dnd.svg)](https://greenkeeper.io/)
+
 A basic dice roller fo DnD 5e. Works in evergreen browsers, Node, and should work back to IE11.
 
 ## Usage

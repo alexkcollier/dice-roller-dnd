@@ -1,3 +1,10 @@
+## [1.0.7](https://github.com/alexkcollier/dice-roller-dnd/compare/v1.0.6...v1.0.7) (2019-12-24)
+
+
+### Bug Fixes
+
+* **deps:** upgrades dependencies ([d131a7b](https://github.com/alexkcollier/dice-roller-dnd/commit/d131a7b7f6004044a0c24f6c049009fcb5744ee8))
+
 ## [1.0.6](https://github.com/alexkcollier/dice-roller-dnd/compare/v1.0.5...v1.0.6) (2019-12-08)
 
 

@@ -3,9 +3,9 @@
 
 
 "@acollier/eslint-config@^2.1.0":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@acollier/eslint-config/-/eslint-config-2.1.0.tgz#38244116922b607b15f0330e9c92bb1c4798a735"
-  integrity sha512-+UM/xBsQnTgFHuuKxtLasZ8e94zqkNBDNRzJfHjeSRoYQmIwvHa6g02QjrVNVxojdCCY1XBtI5qKO1stB6r2Ew==
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@acollier/eslint-config/-/eslint-config-2.2.0.tgz#5b27974268a4ab36fc250e9e92bba2ee4df0b639"
+  integrity sha512-9T/17LMHAfWtTXncm8ZWYNjQR2zJWegW6PWuO4t978yga7axAhurlLwGYxxSih9M38qgjQ7FQ2mRaZ9dO3LE0Q==
 
 "@babel/cli@^7.7.7":
   version "7.13.14"

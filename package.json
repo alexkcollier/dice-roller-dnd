@@ -33,7 +33,7 @@
     "babel-jest": "^26.0.1",
     "eslint": "^7.0.0",
     "husky": "^6.0.0",
-    "jest": "^26.0.0",
+    "jest": "^27.0.1",
     "prettier": "^2.0.1",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.0",

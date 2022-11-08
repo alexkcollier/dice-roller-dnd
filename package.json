@@ -30,7 +30,7 @@
     "@semantic-release/git": "^10.0.0",
     "@semantic-release/github": "^8.0.0",
     "@semantic-release/release-notes-generator": "^10.0.2",
-    "babel-jest": "^27.0.2",
+    "babel-jest": "^29.3.0",
     "eslint": "^7.0.0",
     "husky": "^7.0.1",
     "jest": "^27.0.4",
